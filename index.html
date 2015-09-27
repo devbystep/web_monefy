@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<!-- Dzmitry Misiuk and Dzmitry Romanuk -->
+<!-- Dzmitry Misiuk and Dzmitry Romaniuk -->
 <html>
 <head>
     <title>Web Monefy</title>
@@ -53,8 +53,15 @@
     var transactionList = document.getElementById("transactionList");
 
     function addInput(argument) {
-        validate(addValue.value, addDescription.value);
-        var transaction = {date: new Date(), value: +addValue.value, description: addDescription.value};
+        if (!validate(addValue.value, addDescription.value)) {
+            addValue.style.border = "1px solid red";
+            return
+        }
+        else {
+            addValue.style.border = "1px solid black";
+        }
+
+        var transaction = {date: new Date(), value: addValue.value, description: addDescription.value};
         var transactions = localStorage.getItem("transactions");
         if (!transactions) {
             transactions = [];
@@ -69,8 +76,30 @@
         refresh()
     }
 
-    function validate(value, description) {
+    function IsNumeric(sText) {
+        var ValidChars = "0123456789.";
+        var IsNumbers = true;
+        var Char;
 
+        for (i = 0; i < sText.length && IsNumbers == true; i++) {
+            Char = sText.charAt(i);
+            if (ValidChars.indexOf(Char) == -1) {
+                IsNumbers = false;
+            }
+        }
+
+        if ((sText.length == 0) || (sText == null) || !(sText > 0)) {
+            IsNumbers = false;
+        }
+
+        return IsNumbers
+    }
+
+    function validate(value, description) {
+        if (!IsNumeric(value)) {
+            return alert("Fill in the field value number")
+        };
+        return true;
     }
 
     function refresh() {
