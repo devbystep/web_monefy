@@ -1,0 +1,15 @@
+ul {
+	list-style-type: none;
+}
+
+div.modalDialog {
+	border: 1px solid black;
+	z-index: 9999;
+	display: none;
+}
+input {	border: 1px solid black;}
+
+h2 {
+	text-align: center;
+	color: #2dff35;
+}
