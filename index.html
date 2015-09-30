@@ -3,39 +3,40 @@
 <html>
 <head>
     <title>Web Monefy</title>
-<!--    <link href="css/bootstrap.min.css" rel="stylesheet">-->
-    <link href="css/style.css" rel="stylesheet" type="text/css" >
+    <!--    <link href="css/bootstrap.min.css" rel="stylesheet">-->
+    <link href="css/style.css" rel="stylesheet" type="text/css">
     <script src="js/main.js" type="text/javascript"></script>
+
+    <!-- bootstrap css-->
+    <link rel="stylesheet" type="text/css" href="bower_components/bootstrap/dist/css/bootstrap.css"/>
 </head>
 <body>
+<div class="container">
 
-<ul>
-    <li>
-        <button id="add">Add</button>
-    </li>
-    <li>
-        <button id="spend">Spend</button>
-    </li>
-</ul>
-
-
-<div id="addDialog" class="modalDialog">
-    <div>
-        <table>
-            <caption><h2>Add money to your wallet</h2></caption>
-            <tr>
-                <td>Value:</td>
-                <td><input type="text" name="value" id="addValue"/></td>
-            </tr>
-            <tr>
-                <td>Description:</td>
-                <td><input type="text" name="description" id="addDescription"/></td>
-            </tr>
-        </table>
-        <button onclick="addInput()">Add</button>
+    <div class="row">
+        <button id="add" class="btn btn-success">Add</button>
+        <button id="spend" class="btn btn-danger">Spend</button>
     </div>
+
+    <div id="addDialog" class="modalDialog">
+        <div>
+            <table>
+                <caption><h2>Add money to your wallet</h2></caption>
+                <tr>
+                    <td>Value:</td>
+                    <td><input type="text" name="value" id="addValue"/></td>
+                </tr>
+                <tr>
+                    <td>Description:</td>
+                    <td><input type="text" name="description" id="addDescription"/></td>
+                </tr>
+            </table>
+            <button onclick="addInput()">Add</button>
+        </div>
+    </div>
+    <div id="transactionList"></div>
+
 </div>
-<div id="transactionList"></div>
 
 <script type="text/javascript">
 
@@ -100,7 +101,7 @@
     function validate(value, description) {
         if (!IsNumeric(value)) {
             return alert("Fill in the field value number")
-        };
+        }
         return true;
     }
 
