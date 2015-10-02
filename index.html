@@ -10,35 +10,42 @@
     <script src="js/main.js" type="text/javascript"></script>
 </head>
 <body>
-<footer>
-    <div class="container">
-        <div class="row">
+<div class="container" style="padding: 10px;">
+    <footer>
+
+        <div class="row" style="padding-bottom: 10px;">
             <div class="col-md-2 col-lg-offset-2">
                 <button id="add" class="btn btn-default" type="submit">Add</button>
             </div>
-            <div class="col-md-2 col-lg-offset-4">
+            <div class="col-md-2 col-lg-offset-2">
                 <button id="spend offset2" class="btn btn-default" type="submit">Spend</button>
             </div>
         </div>
+
+    </footer>
+
+    <div id="addDialog" class="modalDialog container">
+        <table class="table">
+            <thead><h2>Add money to your wallet</h2></thead>
+            <tr>
+                <td>Value:</td>
+                <td><input type="text" name="value" id="addValue"/></td>
+            </tr>
+            <tr>
+                <td>Description:</td>
+                <td><input type="text" name="description" id="addDescription"/></td>
+            </tr>
+        </table>
+        <button onclick="addInput()" class="btn btn-default" type="submit">Add</button>
     </div>
-</footer>
 
-<div id="addDialog" class="modalDialog container">
-    <table class="table">
-        <thead><h2>Add money to your wallet</h2></thead>
-        <tr>
-            <td>Value:</td>
-            <td><input type="text" name="value" id="addValue"/></td>
-        </tr>
-        <tr>
-            <td>Description:</td>
-            <td><input type="text" name="description" id="addDescription"/></td>
-        </tr>
-    </table>
-    <button onclick="addInput()" class="btn btn-default" type="submit">Add</button>
+    <div class="row">
+        <div class="col-xs-8">
+            <div id="transactionList"></div>
+        </div>
+    </div>
+
 </div>
-
-<div id="transactionList" class="container"></div>
 
 <script type="text/javascript">
 
@@ -66,7 +73,12 @@
             addValue.style.border = "1px solid black";
         }
 
-        var transaction = {date: new Date(), value: addValue.value, description: addDescription.value};
+        var transaction = {
+            date: new Date(),
+            value: addValue.value,
+            description: addDescription.value,
+            type: "Пополнение"
+        };
         var transactions = localStorage.getItem("transactions");
         if (!transactions) {
             transactions = [];
@@ -105,9 +117,12 @@
             <!--I want to add a modal window-->
             alert("Fill in the field value number");
             return false;
-        };
+        }
+        ;
         return true;
     }
+
+    var tableHeader = "<thead><tr><th>Время</th><th>Сумма</th><th>Описание</th><th>Тип</th></tr></thead>";
 
     function refresh() {
         var table = [];
@@ -118,27 +133,34 @@
         } else {
             transactions = JSON.parse(transactions);
         }
-
+        table.push(tableHeader);
+        table.push("<caption>Транзакции в кошельке</caption>");
+        table.push("<tbody>");
         transactions.forEach(function (entry) {
-            table.push("<tbody>");
+
             table.push("<tr>");
 
             table.push("<td>");
-            table.push(entry.date);
-            table.push("<td>");
+            table.push((new Date(entry.date)).toLocaleString("be"));
+            table.push("</td>");
 
 
             table.push("<td>");
             table.push(entry.value);
-            table.push("<td>");
+            table.push("</td>");
 
             table.push("<td>");
             table.push(entry.description);
+            table.push("</td>");
+
             table.push("<td>");
+            table.push(entry.type);
+            table.push("</td>");
 
             table.push("</tr>");
-            table.push("</tbody>");
+
         });
+        table.push("</tbody>");
         table.push("</table>");
         transactionList.innerHTML = table.join("");
     }
