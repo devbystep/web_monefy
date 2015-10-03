@@ -30,17 +30,20 @@
             <tr>
                 <td>Value:</td>
                 <td>
-                    <div class="input-group">
-                        <span class="input-group-addon">$</span>
-                        <input id="addValue" type="text" class="form-control">
-                        <span class="input-group-addon">.00</span>
-                    </div>
-                    <!-- <div class="form-group has-error">
-                         <label class="control-label" for="inputError1">Input with error</label>
-                         <span class="input-group-addon">$</span>
-                         <input type="text" class="form-control" id="inputError1">
-                         <span class="input-group-addon">.00</span>
-                     </div> -->
+                    <table>
+                        <tr>
+                            <div class="input-group">
+                                <span class="input-group-addon">$</span>
+                                <input id="addValue" type="text" class="form-control">
+                                <span class="input-group-addon">.00</span>
+                            </div>
+                        </tr>
+                        <tr>
+                            <div id="addValueError" class="form-group has-error" style="display: none">
+                                <label class="control-label" for="addValue">Input with error</label>
+                            </div>
+                        </tr>
+                    </table>
                 </td>
             </tr>
             <tr>
@@ -51,9 +54,11 @@
                 </td>
             </tr>
         </table>
+
         <button onclick="addInput()" class="btn btn-default col-lg-2 col-lg-offset-5" type="submit"
                 >Add
         </button>
+
     </div>
 
     <div class="row">
@@ -84,10 +89,12 @@
     function addInput(argument) {
         if (!validate(addValue.value, addDescription.value)) {
             addValue.style.border = "1px solid red";
+            document.getElementById("addValueError").style.display = '';
             return
         }
         else {
             addValue.style.border = "1px solid black";
+            document.getElementById("addValueError").style.display = 'none';
         }
 
         var transaction = {
@@ -181,7 +188,6 @@
         table.push("</table>");
         transactionList.innerHTML = table.join("");
     }
-
 </script>
 
 </body>
