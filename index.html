@@ -158,7 +158,7 @@
             transactions = JSON.parse(transactions);
         }
         table.push(tableHeader);
-        table.push("<caption>Транзакции в кошельке</caption>");
+        table.push("<thead>Транзакции в кошельке</thead>");
         table.push("<tbody>");
         transactions.forEach(function (entry) {
 
@@ -170,7 +170,7 @@
 
 
             table.push("<td>");
-            table.push(entry.value);
+            table.push(+entry.value);
             table.push("</td>");
 
             table.push("<td>");
