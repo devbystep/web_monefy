@@ -23,7 +23,7 @@
             </div>
             <div class="col-lg-2 col-lg-offset-2">
                 <button id="spend offset2" class="btn btn-default" type="submit">
-                    <object data="img/spend.svg" type="image/svg+xml"></object>
+                    <object data="img/spend.svg" type="image/svg+xml" width="100%" height="100%"></object>
                 </button>
             </div>
         </div>
@@ -171,9 +171,14 @@
             table.push(entry.date);
             table.push("</td>");
 
-
             table.push("<td>");
+            if (entry.type == "Пополнение") {
+                table.push("<div style='color: #00ff00'>" + "+");
+            } else {
+                table.push("<div style='color: #080808'>" + "-");
+            }
             table.push(entry.value);
+            table.push("</div>");
             table.push("</td>");
 
             table.push("<td>");
