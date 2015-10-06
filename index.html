@@ -189,7 +189,7 @@
             table.push("</td>");
 
             table.push("<td>");
-            if (walletReplenished) {
+            if (entry.type == "Пополнение") {
                 table.push("<span style='color: #00ff00'>" + "+");
             } else {
                 table.push("<span style='color: #080808'>" + "-");
