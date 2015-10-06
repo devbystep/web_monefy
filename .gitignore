@@ -38,6 +38,8 @@
 # mpeltonen/sbt-idea plugin
 .idea_modules/
 
+bower_components
+
 # JIRA plugin
 atlassian-ide-plugin.xml
 
