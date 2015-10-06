@@ -103,7 +103,7 @@
         }
 
         var transaction = {
-            date: moment().locale("be").format('dddd, DD MMMM YYYY, hh:mm:ss'),
+            date: moment().toISOString(),
             value: +addValue.value,
             description: addDescription.value,
             type: "Пополнение"
@@ -168,7 +168,7 @@
             table.push("<tr>");
 
             table.push("<td>");
-            table.push(entry.date);
+            table.push(moment(entry.date).locale("be").format('dddd, DD MMMM YYYY, hh:mm:ss'));
             table.push("</td>");
 
             table.push("<td>");
