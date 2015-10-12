@@ -5,6 +5,7 @@
     "jquery": "~2.*",
     "bootstrap": "~3.*",
     "moment": "~2.*"
+    "ihover": "1.*"
   },
   "private": true
 }
