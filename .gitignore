@@ -38,7 +38,8 @@
 # mpeltonen/sbt-idea plugin
 .idea_modules/
 
-bower_components
+bower_components/
+.divshot-cache/
 
 # JIRA plugin
 atlassian-ide-plugin.xml
@@ -49,3 +50,4 @@ crashlytics.properties
 crashlytics-build.properties
 
 # Created by .ignore support plugin (hsz.mobi)
+
