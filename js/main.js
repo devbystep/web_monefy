@@ -52,7 +52,6 @@ function validate(value, description) {
 
 var walletReplenished = true;
 
-var tableHeader = "<thead><tr><th>Время</th><th>Сумма</th><th>Описание</th><th>Тип</th></tr></thead>";
 
 function addInput(argument) {
 
@@ -62,6 +61,8 @@ function addInput(argument) {
     if (!validate(addValue.value, addDescription.value)) {
         addValue.style.color = "red";
         document.getElementById("addValueError").style.display = '';
+        // document.show.bs.modal;
+        // document.data-target = '.bs-exmple-modal-sm';
         return
     }
     else {
@@ -69,9 +70,17 @@ function addInput(argument) {
         document.getElementById("addValueError").style.display = 'none';
     }
 
+    var val2=function () {
+        if (walletReplenished) { val1=+addValue.value;
+            return val1
+        } else { var val1=+addValue.value;
+            val1 = 0 - val1;
+            return val1
+        }};
+
     var transaction = {
         date: moment().toISOString(),
-        value: +addValue.value,
+        value: val2(),
         description: addDescription.value,
         type: (function () {
             return (walletReplenished) ? "Пополнение" : "Списание"
@@ -91,6 +100,9 @@ function addInput(argument) {
     refresh()
 }
 
+var summvalue = 0;
+var tableHeader1 = "<thead><tr><th>Время</th><th>Сумма</th><th>Описание</th><th>Тип</th></tr></thead>";
+
 function refresh() {
     var transactionList = document.getElementById("transactionList");
     var table = [];
@@ -101,7 +113,13 @@ function refresh() {
     } else {
         transactions = JSON.parse(transactions);
     }
-    table.push(tableHeader);
+    summvalue = 0;
+    for (i = 0; i < JSON.parse(localStorage["transactions"]).length; i++) {
+        summvalue = summvalue + +JSON.parse(localStorage["transactions"])[i].value;
+    }
+    var tableHeader2 = "<tr><th></th><th>" + summvalue + "</th><th></th><th></th></tr>";
+    table.push(tableHeader1);
+    table.push(tableHeader2);
     table.push("<thead>Транзакции в кошельке</thead>");
     table.push("<tbody>");
     transactions.forEach(function (entry) {
@@ -116,7 +134,7 @@ function refresh() {
         if (entry.type == "Пополнение") {
             table.push("<span style='color: #00ff00'>" + "+");
         } else {
-            table.push("<span style='color: #080808'>" + "-");
+            table.push("<span style='color: #080808'>");
         }
         table.push(entry.value);
         table.push("</span>");
