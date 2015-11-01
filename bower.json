@@ -5,7 +5,8 @@
     "jquery": "~2.*",
     "bootstrap": "~3.*",
     "moment": "~2.*",
-    "ihover": "1.*"
+    "ihover": "~1.*",
+    "BaremetricsCalendar": "~1.*"
   },
   "private": true
 }

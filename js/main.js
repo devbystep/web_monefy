@@ -21,6 +21,20 @@ window.onload = function () {
 
     refresh();
 
+    var dd = new Calendar({
+        element: $('.daterange--double'),
+        earliest_date: 'January 1, 2000',
+        latest_date: new Date(),
+        start_date: 'May 1, 2015',
+        end_date: 'May 31, 2015',
+        callback: function () {
+            var start = moment(this.start_date).format('ll'),
+                end = moment(this.end_date).format('ll');
+
+            console.debug('Start Date: ' + start + '\nEnd Date: ' + end);
+        }
+    });
+
 };
 
 function IsNumeric(sText) {
@@ -70,13 +84,32 @@ function addInput(argument) {
         document.getElementById("addValueError").style.display = 'none';
     }
 
-    var val2=function () {
-        if (walletReplenished) { val1=+addValue.value;
+    var val2 = function () {
+        if (walletReplenished) {
+            val1 = +addValue.value;
             return val1
-        } else { var val1=+addValue.value;
+        } else {
+            var val1 = +addValue.value;
             val1 = 0 - val1;
             return val1
-        }};
+        }
+    };
+
+    var calendardate= Calendar.callback;
+
+    new Calendar({
+        element: $('.daterange--double'),
+        earliest_date: 'January 1, 2000',
+        latest_date: new Date(),
+        start_date: 'May 1, 2015',
+        end_date: 'May 31, 2015',
+        callback: function() {
+            var start = moment(this.start_date).format('ll'),
+                end = moment(this.end_date).format('ll');
+
+            console.debug('Start Date: '+ start +'\nEnd Date: '+ end);
+        }
+    });
 
     var transaction = {
         date: moment().toISOString(),
@@ -117,7 +150,8 @@ function refresh() {
     for (i = 0; i < JSON.parse(localStorage["transactions"]).length; i++) {
         summvalue = summvalue + +JSON.parse(localStorage["transactions"])[i].value;
     }
-    var tableHeader2 = "<tr><th></th><th>" + summvalue + "</th><th></th><th></th></tr>";
+    var tableHeader2 = "<tr><th><div class='daterange daterange--double'></div></th><th>"
+        + summvalue + "</th><th></th><th></th></tr>";
     table.push(tableHeader1);
     table.push(tableHeader2);
     table.push("<thead>Транзакции в кошельке</thead>");
@@ -127,7 +161,7 @@ function refresh() {
         table.push("<tr>");
 
         table.push("<td>");
-        table.push(moment(entry.date).locale("be").format('dddd, DD MMMM YYYY, hh:mm:ss a'));
+        table.push(moment(entry.date).locale("ru").format('dddd, DD MMMM YYYY, hh:mm:ss a'));
         table.push("</td>");
 
         table.push("<td>");

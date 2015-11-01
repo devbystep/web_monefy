@@ -1,40 +1,46 @@
-<!DOCTYPE html>
+﻿<!DOCTYPE html>
 <!-- Dzmitry Misiuk and Dzmitry Romaniuk -->
-<html>
+<html lang="en">
 <head>
     <title>Web Monefy</title>
     <meta charset="UTF-8">
     <link href="bower_components/bootstrap/dist/css/bootstrap.css" rel="stylesheet" type="text/css">
     <link href="css/style.css" rel="stylesheet" type="text/css">
-    <link href="bower_components/ihover/src/ihover.css" rel="stylesheet">
+    <link href="bower_components/ihover/src/ihover.css" rel="stylesheet" type="text/css">
+    <link href="bower_components/BaremetricsCalendar/public/css/application.css" rel="stylesheet" type="text/css">
+    <link rel="shortcut icon" href="img/favicon.png">
     <script src="bower_components/jquery/dist/jquery.js" type="text/javascript"></script>
     <script src="bower_components/bootstrap/dist/js/bootstrap.js" type="text/javascript"></script>
-    <script src="bower_components/moment/min/moment-with-locales.js" type="text/javascript"></script>
+    <!--<script src="bower_components/BaremetricsCalendar/dev/js/vendor/moment.js" type="text/javascript"></script>-->
+    <script src="bower_components/moment/min/moment.min.js" type="text/javascript"></script>
+    <script src="bower_components/BaremetricsCalendar/dev/js/Calendar.js" type="text/javascript"></script>
     <script src="js/main.js" type="text/javascript"></script>
 </head>
 <body>
-<div class="container" style="padding: 10px">
-    <div class="row" style="margin-bottom: 2%">
+<div class="container" style="margin: 10px; width: 100%">
+    <div class="row" style="margin-bottom: 2%; width: 80%">
         <div class="col-sm-4 col-lg-offset-2">
-            <div class="ih-item circle effect1"><a id="add" href="#" type="submit">
+            <div class="ih-item circle effect1" style="margin: 10px"><a id="add" href="#" type="submit">
                 <div class="spinner"></div>
                 <div class="img"><img src="img/add.jpg" alt="img"></div>
                 <div class="info">
                     <div class="info-back">
-                        <h3>Heading here</h3>
-                        <p>Description goes here</p>
+                        <h3>ADD</h3>
+
+                        <p>Add value and description</p>
                     </div>
                 </div>
             </a></div>
         </div>
         <div class="col-sm-4">
-            <div class="ih-item circle effect1"><a id="spend" href="#" type="submit">
+            <div class="ih-item circle effect1" style="margin: 10px"><a id="spend" href="#" type="submit">
                 <div class="spinner"></div>
                 <div class="img"><img src="img/spend.jpg" alt="img"></div>
                 <div class="info">
                     <div class="info-back">
-                        <h3>Heading here</h3>
-                        <p>Description goes here</p>
+                        <h3>SPEND</h3>
+
+                        <p>Add value and description</p>
                     </div>
                 </div>
             </a></div>
@@ -53,10 +59,12 @@
                 <td>Value:</td>
                 <td>
                     <table>
+
                         <tr>
                             <div class="input-group">
                                 <span class="input-group-addon">$</span>
-                                <input id="addValue" type="text" class="form-control">
+                                <input id="addValue" type="number" class="form-control"
+                                       pattern="^[0-9]">
                                 <span class="input-group-addon">.00</span>
                             </div>
                         </tr>
@@ -72,23 +80,25 @@
                 <td>Description:</td>
                 <td>
                     <input id="addDescription" type="text" class="form-control"
-                           aria-label="Amount (to the nearest dollar)">
+                           pattern="^[Рђ-РЇР°-СЏРЃС‘\s]+$+^[a-zA-Z]+^[0-9]" aria-label="Amount (to the nearest dollar)">
                 </td>
             </tr>
         </table>
 
-
         <button onclick="addInput()" class="btn btn-default col-lg-2 col-lg-offset-5" type="submit">ENTER
         </button>
-
     </div>
 
-    <div class="row">
-        <div class="col-xs-8">
-            <div id="transactionList"></div>
+
+    </div>
+    <div class="container">
+        <div class="row">
+            <div class="col-xs-8">
+                <div id="transactionList"></div>
+            </div>
         </div>
-    </div>
 
+    </div>
 </div>
 
 
@@ -99,7 +109,6 @@
         </div>
     </div>
 </div>
-
 
 </body>
 </html>
