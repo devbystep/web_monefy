@@ -1,0 +1,200 @@
+0 info it worked if it ends with ok
+1 verbose cli [ 'C:\\Program Files (x86)\\nodejs\\node.exe',
+1 verbose cli   'C:\\Program Files (x86)\\nodejs\\node_modules\\npm\\bin\\npm-cli.js',
+1 verbose cli   'install',
+1 verbose cli   '-',
+1 verbose cli   'g',
+1 verbose cli   'bower' ]
+2 info using npm@2.14.4
+3 info using node@v4.1.1
+4 verbose install initial load of F:\programming\level 1\minsler\web_monefy\package.json
+5 verbose readDependencies loading dependencies from F:\programming\level 1\minsler\web_monefy\package.json
+6 silly cache add args [ '-', null ]
+7 verbose cache add spec -
+8 silly cache add args [ 'g', null ]
+9 verbose cache add spec g
+10 silly cache add args [ 'bower', null ]
+11 verbose cache add spec bower
+12 silly cache add parsed spec Result {
+12 silly cache add   raw: '-',
+12 silly cache add   scope: null,
+12 silly cache add   name: null,
+12 silly cache add   rawSpec: '-',
+12 silly cache add   spec: 'F:\\programming\\level 1\\minsler\\web_monefy\\-',
+12 silly cache add   type: 'local' }
+13 silly cache add parsed spec Result {
+13 silly cache add   raw: 'g',
+13 silly cache add   scope: null,
+13 silly cache add   name: 'g',
+13 silly cache add   rawSpec: '',
+13 silly cache add   spec: '*',
+13 silly cache add   type: 'range' }
+14 silly addNamed g@*
+15 verbose addNamed "*" is a valid semver range for g
+16 silly addNameRange { name: 'g', range: '*', hasData: false }
+17 silly mapToRegistry name g
+18 silly mapToRegistry using default registry
+19 silly mapToRegistry registry https://registry.npmjs.org/
+20 silly mapToRegistry uri https://registry.npmjs.org/g
+21 verbose addNameRange registry:https://registry.npmjs.org/g not in flight; fetching
+22 silly cache add parsed spec Result {
+22 silly cache add   raw: 'bower',
+22 silly cache add   scope: null,
+22 silly cache add   name: 'bower',
+22 silly cache add   rawSpec: '',
+22 silly cache add   spec: '*',
+22 silly cache add   type: 'range' }
+23 silly addNamed bower@*
+24 verbose addNamed "*" is a valid semver range for bower
+25 silly addNameRange { name: 'bower', range: '*', hasData: false }
+26 silly mapToRegistry name bower
+27 silly mapToRegistry using default registry
+28 silly mapToRegistry registry https://registry.npmjs.org/
+29 silly mapToRegistry uri https://registry.npmjs.org/bower
+30 verbose addNameRange registry:https://registry.npmjs.org/bower not in flight; fetching
+31 error addLocal Could not install F:\programming\level 1\minsler\web_monefy\-
+32 verbose request uri https://registry.npmjs.org/g
+33 verbose request no auth needed
+34 info attempt registry request try #1 at 20:25:10
+35 verbose request id d948b57049033162
+36 verbose etag "8AYIUDSUHLGXZT7X52XKA2O0S"
+37 http request GET https://registry.npmjs.org/g
+38 verbose request uri https://registry.npmjs.org/bower
+39 verbose request no auth needed
+40 info attempt registry request try #1 at 20:25:10
+41 verbose etag "LUUNZ9SV4TF5MCEILJ5Y2TCI"
+42 http request GET https://registry.npmjs.org/bower
+43 http 304 https://registry.npmjs.org/g
+44 silly get cb [ 304,
+44 silly get   { date: 'Fri, 30 Oct 2015 17:25:09 GMT',
+44 silly get     via: '1.1 varnish',
+44 silly get     'cache-control': 'max-age=60',
+44 silly get     etag: '"8AYIUDSUHLGXZT7X52XKA2O0S"',
+44 silly get     age: '0',
+44 silly get     connection: 'keep-alive',
+44 silly get     'x-served-by': 'cache-fra1250-FRA',
+44 silly get     'x-cache': 'HIT',
+44 silly get     'x-cache-hits': '1',
+44 silly get     'x-timer': 'S1446225909.858537,VS0,VE896',
+44 silly get     vary: 'Accept' } ]
+45 verbose etag https://registry.npmjs.org/g from cache
+46 verbose get saving g to C:\Users\Катюша\AppData\Roaming\npm-cache\registry.npmjs.org\g\.cache.json
+47 silly addNameRange number 2 { name: 'g', range: '*', hasData: true }
+48 silly addNameRange versions [ 'g',
+48 silly addNameRange   [ '1.0.0', '1.0.1', '1.0.2', '1.0.3', '1.0.4', '1.0.5', '2.0.0' ] ]
+49 silly addNamed g@2.0.0
+50 verbose addNamed "2.0.0" is a plain semver version for g
+51 http 200 https://registry.npmjs.org/bower
+52 silly get cb [ 200,
+52 silly get   { server: 'CouchDB/1.5.0 (Erlang OTP/R16B03)',
+52 silly get     etag: '"3ZUPOLDSWABRES6Y64U5T4P7P"',
+52 silly get     'content-type': 'application/json',
+52 silly get     'cache-control': 'max-age=60',
+52 silly get     'content-length': '136222',
+52 silly get     'accept-ranges': 'bytes',
+52 silly get     date: 'Fri, 30 Oct 2015 17:25:09 GMT',
+52 silly get     via: '1.1 varnish',
+52 silly get     age: '14',
+52 silly get     connection: 'keep-alive',
+52 silly get     'x-served-by': 'cache-fra1244-FRA',
+52 silly get     'x-cache': 'HIT',
+52 silly get     'x-cache-hits': '1',
+52 silly get     'x-timer': 'S1446225909.852372,VS0,VE1',
+52 silly get     vary: 'Accept' } ]
+53 verbose get saving bower to C:\Users\Катюша\AppData\Roaming\npm-cache\registry.npmjs.org\bower\.cache.json
+54 silly addNameRange number 2 { name: 'bower', range: '*', hasData: true }
+55 silly addNameRange versions [ 'bower',
+55 silly addNameRange   [ '0.1.0',
+55 silly addNameRange     '0.1.2',
+55 silly addNameRange     '0.1.3',
+55 silly addNameRange     '0.2.0',
+55 silly addNameRange     '0.3.0',
+55 silly addNameRange     '0.3.1',
+55 silly addNameRange     '0.3.2',
+55 silly addNameRange     '0.4.0',
+55 silly addNameRange     '0.5.0',
+55 silly addNameRange     '0.5.1',
+55 silly addNameRange     '0.6.0',
+55 silly addNameRange     '0.6.1',
+55 silly addNameRange     '0.6.2',
+55 silly addNameRange     '0.6.3',
+55 silly addNameRange     '0.6.4',
+55 silly addNameRange     '0.6.5',
+55 silly addNameRange     '0.6.6',
+55 silly addNameRange     '0.6.7',
+55 silly addNameRange     '0.6.8',
+55 silly addNameRange     '0.7.0',
+55 silly addNameRange     '0.7.1',
+55 silly addNameRange     '0.8.0',
+55 silly addNameRange     '0.8.1',
+55 silly addNameRange     '0.8.2',
+55 silly addNameRange     '0.8.3',
+55 silly addNameRange     '0.8.4',
+55 silly addNameRange     '0.8.5',
+55 silly addNameRange     '0.8.6',
+55 silly addNameRange     '0.9.0',
+55 silly addNameRange     '0.9.1',
+55 silly addNameRange     '0.9.2',
+55 silly addNameRange     '0.10.0',
+55 silly addNameRange     '1.0.0',
+55 silly addNameRange     '1.0.1',
+55 silly addNameRange     '1.0.2',
+55 silly addNameRange     '1.0.3',
+55 silly addNameRange     '1.1.0',
+55 silly addNameRange     '1.1.1',
+55 silly addNameRange     '1.1.2',
+55 silly addNameRange     '1.2.0',
+55 silly addNameRange     '1.2.1',
+55 silly addNameRange     '1.2.2',
+55 silly addNameRange     '1.2.3',
+55 silly addNameRange     '1.2.4',
+55 silly addNameRange     '1.2.5',
+55 silly addNameRange     '1.2.6',
+55 silly addNameRange     '1.2.7',
+55 silly addNameRange     '1.2.8',
+55 silly addNameRange     '1.3.0',
+55 silly addNameRange     '1.3.1',
+55 silly addNameRange     '1.3.2',
+55 silly addNameRange     '1.3.3',
+55 silly addNameRange     '1.3.4',
+55 silly addNameRange     '1.3.5',
+55 silly addNameRange     '1.3.6',
+55 silly addNameRange     '1.3.7',
+55 silly addNameRange     '1.3.8',
+55 silly addNameRange     '1.3.9',
+55 silly addNameRange     '1.3.10',
+55 silly addNameRange     '1.3.11',
+55 silly addNameRange     '1.3.12',
+55 silly addNameRange     '1.4.0',
+55 silly addNameRange     '1.4.1',
+55 silly addNameRange     '1.5.0',
+55 silly addNameRange     '1.5.1',
+55 silly addNameRange     '1.5.2',
+55 silly addNameRange     '1.5.3',
+55 silly addNameRange     '1.6.2',
+55 silly addNameRange     '1.6.3',
+55 silly addNameRange     '1.6.4',
+55 silly addNameRange     '1.6.5' ] ]
+56 silly addNamed bower@1.6.5
+57 verbose addNamed "1.6.5" is a plain semver version for bower
+58 silly cache afterAdd g@2.0.0
+59 verbose afterAdd C:\Users\Катюша\AppData\Roaming\npm-cache\g\2.0.0\package\package.json not in flight; writing
+60 silly cache afterAdd bower@1.6.5
+61 verbose afterAdd C:\Users\Катюша\AppData\Roaming\npm-cache\bower\1.6.5\package\package.json not in flight; writing
+62 verbose afterAdd C:\Users\Катюша\AppData\Roaming\npm-cache\g\2.0.0\package\package.json written
+63 verbose afterAdd C:\Users\Катюша\AppData\Roaming\npm-cache\bower\1.6.5\package\package.json written
+64 verbose stack Error: ENOENT: no such file or directory, open 'F:\programming\level 1\minsler\web_monefy\-'
+64 verbose stack     at Error (native)
+65 verbose cwd F:\programming\level 1\minsler\web_monefy
+66 error Windows_NT 6.1.7601
+67 error argv "C:\\Program Files (x86)\\nodejs\\node.exe" "C:\\Program Files (x86)\\nodejs\\node_modules\\npm\\bin\\npm-cli.js" "install" "-" "g" "bower"
+68 error node v4.1.1
+69 error npm  v2.14.4
+70 error path F:\programming\level 1\minsler\web_monefy\-
+71 error code ENOENT
+72 error errno -4058
+73 error syscall open
+74 error enoent ENOENT: no such file or directory, open 'F:\programming\level 1\minsler\web_monefy\-'
+74 error enoent This is most likely not a problem with npm itself
+74 error enoent and is related to npm not being able to find a file.
+75 verbose exit [ -4058, true ]
