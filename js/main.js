@@ -17,11 +17,8 @@ window.onload = function () {
         document.getElementById("spendDialogTitle").style.display = '';
         walletReplenished = false;
         refresh()
-    };
-
-    refresh();
-
-    var dd = new Calendar({
+    };    
+    dd = new Calendar({
         element: $('.daterange--double'),
         earliest_date: 'January 1, 2000',
         latest_date: new Date(),
@@ -34,8 +31,11 @@ window.onload = function () {
             console.debug('Start Date: ' + start + '\nEnd Date: ' + end);
         }
     });
+    refresh();
 
 };
+var dd;
+
 
 function IsNumeric(sText) {
     var ValidChars = "0123456789.";
@@ -95,22 +95,6 @@ function addInput(argument) {
         }
     };
 
-    var calendardate= Calendar.callback;
-
-    new Calendar({
-        element: $('.daterange--double'),
-        earliest_date: 'January 1, 2000',
-        latest_date: new Date(),
-        start_date: 'May 1, 2015',
-        end_date: 'May 31, 2015',
-        callback: function() {
-            var start = moment(this.start_date).format('ll'),
-                end = moment(this.end_date).format('ll');
-
-            console.debug('Start Date: '+ start +'\nEnd Date: '+ end);
-        }
-    });
-
     var transaction = {
         date: moment().toISOString(),
         value: val2(),
@@ -137,6 +121,9 @@ var summvalue = 0;
 var tableHeader1 = "<thead><tr><th>Время</th><th>Сумма</th><th>Описание</th><th>Тип</th></tr></thead>";
 
 function refresh() {
+    var cal_start=dd.start_date;
+    var cal_end=dd.end_date;
+    console.log(cal_end, cal_start);
     var transactionList = document.getElementById("transactionList");
     var table = [];
     table.push("<table class='table table-hover'>");
@@ -150,7 +137,7 @@ function refresh() {
     for (i = 0; i < JSON.parse(localStorage["transactions"]).length; i++) {
         summvalue = summvalue + +JSON.parse(localStorage["transactions"])[i].value;
     }
-    var tableHeader2 = "<tr><th><div class='daterange daterange--double'></div></th><th>"
+    var tableHeader2 = "<tr><th></th><th>"
         + summvalue + "</th><th></th><th></th></tr>";
     table.push(tableHeader1);
     table.push(tableHeader2);
