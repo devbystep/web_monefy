@@ -37,8 +37,6 @@ window.onload = function () {
 var dd;
 
 
-var test_function;
-
 function IsNumeric(sText) {
     var ValidChars = "0123456789.";
     var IsNumbers = true;
