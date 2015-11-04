@@ -120,7 +120,8 @@ function addInput(argument) {
 var summvalue = 0;
 var tableHeader1 = "<thead><tr><th>Время</th><th>Сумма</th><th>Описание</th><th>Тип</th></tr></thead>";
 
-$(".daterange--double").click(function () {alert(dd.start_date)});
+$(".daterange--double").on().click(function () {alert(dd.start_date)});
+/*Test merge*/
 
 function refresh() {
     var cal_start=dd.start_date;
