@@ -1,0 +1,22 @@
+{
+  "name": "web_monefy",
+  "description": "It's available on [http://development.monefy.divshot.io/](http://development.monefy.divshot.io/)",
+  "version": "1.0.0",
+  "main": "./js/main.js",
+  "dependencies": {
+    "gulp": "^3.9.0"
+  },
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://Ramaniuk@bitbucket.org/minsler/web_monefy.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "homepage": "https://bitbucket.org/minsler/web_monefy#readme",
+  "devDependencies": {
+    "gulp-minify-css": "^1.2.1"
+  }
+}

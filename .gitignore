@@ -30,6 +30,7 @@
 *.ipr
 *.iws
 
+/node_modules
 ## Plugin-specific files:
 
 
