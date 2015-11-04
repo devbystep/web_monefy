@@ -121,7 +121,8 @@ var summvalue = 0;
 var tableHeader1 = "<thead><tr><th>Время</th><th>Сумма</th><th>Описание</th><th>Тип</th></tr></thead>";
 
 $(".daterange--double").on().click(function () {alert(dd.start_date)});
-/*Test merge*/
+
+
 
 function refresh() {
     var cal_start=dd.start_date;
@@ -140,6 +141,7 @@ function refresh() {
     for (i = 0; i < JSON.parse(localStorage["transactions"]).length; i++) {
         summvalue = summvalue + +JSON.parse(localStorage["transactions"])[i].value;
     }
+    document.getElementById("summval").value = summvalue;
     var tableHeader2 = "<tr><th></th><th>"
         + summvalue + "</th><th></th><th></th></tr>";
     table.push(tableHeader1);
