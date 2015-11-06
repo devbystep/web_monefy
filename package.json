@@ -17,6 +17,15 @@
   "license": "ISC",
   "homepage": "https://bitbucket.org/minsler/web_monefy#readme",
   "devDependencies": {
-    "gulp-minify-css": "^1.2.1"
+    "browser-sync": "browsersync/browser-sync",
+    "gulp-bower-files": "ck86/gulp-bower-files",
+    "gulp-changed": "sindresorhus/gulp-changed",
+    "gulp-csso": "ben-eb/gulp-csso",
+    "gulp-minify-css": "~1.*",
+    "gulp-notify": "mikaelbr/gulp-notify",
+    "gulp-uncss": "ben-eb/gulp-uncss",
+    "gulp-update": "tounano/gulp-update",
+    "gulp-watch": "floatdrop/gulp-watch",
+    "postcss": "~5.*"
   }
 }
