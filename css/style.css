@@ -2,10 +2,6 @@ html {
     font-size: 12pt;
 }
 
-ul {
-    list-style-type: none;
-}
-
 div.modalDialog {
     border: 1px solid black;
     z-index: 9999;
@@ -16,6 +12,10 @@ input {
     border: 0px solid black;
 }
 
+h1 {
+    font-size: 2rem;
+    float: left;
+}
 h2 {
     font-family: "Times New Roman";
     text-align: center;

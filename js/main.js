@@ -118,10 +118,6 @@ function addInput(argument) {
 }
 
 var summvalue = 0;
-var tableHeader1 = "<thead><tr><th>Время</th><th>Сумма</th><th>Описание</th><th>Тип</th></tr></thead>";
-
-$(".daterange--double").on().click(function () {alert(dd.start_date)});
-
 
 
 function refresh() {
@@ -141,12 +137,9 @@ function refresh() {
     for (i = 0; i < JSON.parse(localStorage["transactions"]).length; i++) {
         summvalue = summvalue + +JSON.parse(localStorage["transactions"])[i].value;
     }
-    document.getElementById("summval").value = summvalue;
-    var tableHeader2 = "<tr><th></th><th>"
-        + summvalue + "</th><th></th><th></th></tr>";
-    table.push(tableHeader1);
-    table.push(tableHeader2);
+    document.getElementById("summval").innerHTML = "Баланс: "+summvalue;
     table.push("<thead>Транзакции в кошельке</thead>");
+    table.push("<thead><tr><th>Время</th><th>Сумма</th><th>Описание</th><th>Тип</th></tr></thead>");
     table.push("<tbody>");
     transactions.forEach(function (entry) {
 
