@@ -17,13 +17,13 @@ window.onload = function () {
         document.getElementById("spendDialogTitle").style.display = '';
         walletReplenished = false;
         refresh()
-    };    
+    };
     dd = new Calendar({
         element: $('.daterange--double'),
         earliest_date: 'January 1, 2000',
         latest_date: new Date(),
-        start_date: 'May 1, 2015',
-        end_date: 'May 31, 2015',
+        start_date: 'January 1, 2000',
+        end_date: new Date(),
         callback: function () {
             var start = moment(this.start_date).format('ll'),
                 end = moment(this.end_date).format('ll');
@@ -119,11 +119,12 @@ function addInput(argument) {
 
 var summvalue = 0;
 
+$().change(dd.start_date);
 
 function refresh() {
-    var cal_start=dd.start_date;
-    var cal_end=dd.end_date;
-    console.log(cal_end, cal_start);
+    var cal_start = dd.start_date;
+    var cal_end = dd.end_date;
+    console.log(dd.callback());
     var transactionList = document.getElementById("transactionList");
     var table = [];
     table.push("<table class='table table-hover'>");
@@ -137,37 +138,38 @@ function refresh() {
     for (i = 0; i < JSON.parse(localStorage["transactions"]).length; i++) {
         summvalue = summvalue + +JSON.parse(localStorage["transactions"])[i].value;
     }
-    document.getElementById("summval").innerHTML = "Баланс: "+summvalue;
+    document.getElementById("summval").innerHTML = "Баланс: " + summvalue;
     table.push("<thead>Транзакции в кошельке</thead>");
     table.push("<thead><tr><th>Время</th><th>Сумма</th><th>Описание</th><th>Тип</th></tr></thead>");
     table.push("<tbody>");
     transactions.forEach(function (entry) {
+        if (Date.parse(dd.start_date) < Date.parse(entry.date) && Date.parse(entry.date) < Date.parse(dd.end_date)) {
+            table.push("<tr>");
 
-        table.push("<tr>");
+            table.push("<td>");
+            table.push(moment(entry.date).locale("ru").format('dddd, DD MMMM YYYY, hh:mm:ss a'));
+            table.push("</td>");
 
-        table.push("<td>");
-        table.push(moment(entry.date).locale("ru").format('dddd, DD MMMM YYYY, hh:mm:ss a'));
-        table.push("</td>");
+            table.push("<td>");
+            if (entry.type == "Пополнение") {
+                table.push("<span style='color: #00ff00'>" + "+");
+            } else {
+                table.push("<span style='color: #080808'>");
+            }
+            table.push(entry.value);
+            table.push("</span>");
+            table.push("</td>");
 
-        table.push("<td>");
-        if (entry.type == "Пополнение") {
-            table.push("<span style='color: #00ff00'>" + "+");
-        } else {
-            table.push("<span style='color: #080808'>");
+            table.push("<td>");
+            table.push(entry.description);
+            table.push("</td>");
+
+            table.push("<td>");
+            table.push(entry.type);
+            table.push("</td>");
+
+            table.push("</tr>");
         }
-        table.push(entry.value);
-        table.push("</span>");
-        table.push("</td>");
-
-        table.push("<td>");
-        table.push(entry.description);
-        table.push("</td>");
-
-        table.push("<td>");
-        table.push(entry.type);
-        table.push("</td>");
-
-        table.push("</tr>");
 
     });
     table.push("</tbody>");
