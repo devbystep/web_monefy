@@ -27,11 +27,13 @@ window.onload = function () {
         callback: function () {
             var start = moment(this.start_date).format('ll'),
                 end = moment(this.end_date).format('ll');
-
+            refresh();
             console.debug('Start Date: ' + start + '\nEnd Date: ' + end);
         }
     });
     refresh();
+
+    $().change(dd.start_date);
 
 };
 var dd;
@@ -119,12 +121,9 @@ function addInput(argument) {
 
 var summvalue = 0;
 
-$().change(dd.start_date);
-
 function refresh() {
     var cal_start = dd.start_date;
     var cal_end = dd.end_date;
-    console.log(dd.callback());
     var transactionList = document.getElementById("transactionList");
     var table = [];
     table.push("<table class='table table-hover'>");
