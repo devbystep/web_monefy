@@ -8,16 +8,17 @@ div.modalDialog {
     display: none;
 }
 
-input {
-    border: 0px solid black;
-}
-
 h1 {
     font-size: 2rem;
     float: left;
 }
+
 h2 {
-    font-family: "Times New Roman";
     text-align: center;
     color: #22359e;
+}
+
+#closeDialogTitle {
+    float: right;
+    padding-top: 1%
 }

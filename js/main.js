@@ -18,6 +18,10 @@ window.onload = function () {
         walletReplenished = false;
         refresh()
     };
+    document.getElementById("closeDialogTitle").onclick = function () {
+        console.log(1);
+        addDialog.style.display = "none";
+    };
     dd = new Calendar({
         element: $('.daterange--double'),
         earliest_date: 'January 1, 2000',
@@ -32,8 +36,6 @@ window.onload = function () {
         }
     });
     refresh();
-
-    $().change(dd.start_date);
 
 };
 var dd;
@@ -57,7 +59,7 @@ function IsNumeric(sText) {
     return IsNumbers
 }
 
-function validate(value, description) {
+function validate(value) {
     if (!IsNumeric(value)) {
         <!--I want to add a modal window -->
         alert("Fill in the field value number");
@@ -69,7 +71,7 @@ function validate(value, description) {
 var walletReplenished = true;
 
 
-function addInput(argument) {
+function addInput() {
 
     var addValue = document.getElementById("addValue");
     var addDescription = document.getElementById("addDescription");
@@ -122,8 +124,6 @@ function addInput(argument) {
 var summvalue = 0;
 
 function refresh() {
-    var cal_start = dd.start_date;
-    var cal_end = dd.end_date;
     var transactionList = document.getElementById("transactionList");
     var table = [];
     table.push("<table class='table table-hover'>");

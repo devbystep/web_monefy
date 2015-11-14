@@ -29,6 +29,7 @@
             <div id="addDialog" class="modalDialog container" style="padding-bottom: 2%">
                 <table class="table">
                     <thead>
+                    <a id="closeDialogTitle" class="glyphicon glyphicon-remove-circle" href=""></a>
                     <h2 id="addDialogTitle">Add money to your wallet</h2>
 
                     <h2 id="spendDialogTitle">Take the money from your wallet</h2>
@@ -57,7 +58,7 @@
                         <td>Description:</td>
                         <td>
                             <input id="addDescription" type="text" class="form-control"
-                                   pattern="^[Рђ-РЇР°-СЏРЃС‘\s]+$+^[a-zA-Z]+^[0-9]"
+                                   pattern="^[а-яА-я]+$+^[a-zA-Z]+^[0-9]"
                                    aria-label="Amount (to the nearest dollar)">
                         </td>
                     </tr>
