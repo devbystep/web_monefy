@@ -9,14 +9,12 @@ window.onload = function () {
         walletReplenished = true;
         document.getElementById("addDialogTitle").style.display = '';
         document.getElementById("spendDialogTitle").style.display = 'none';
-        refresh()
     };
     spendBtn.onclick = function () {
         addDialog.style.display = "block";
         document.getElementById("addDialogTitle").style.display = 'none';
         document.getElementById("spendDialogTitle").style.display = '';
         walletReplenished = false;
-        refresh()
     };
     document.getElementById("closeDialogTitle").onclick = function () {
         console.log(1);
@@ -123,7 +121,7 @@ function addInput() {
 
 var summvalue = 0;
 
-function refresh() {
+function refresh(arguments) {
     var transactionList = document.getElementById("transactionList");
     var table = [];
     table.push("<table class='table table-hover'>");

@@ -1,11 +1,16 @@
 html {
-    font-size: 12pt;
+    font-size: 15px;
+    position: relative;
 }
 
 div.modalDialog {
     border: 1px solid black;
     z-index: 9999;
     display: none;
+}
+
+div.daterange {
+    float: right;
 }
 
 h1 {
