@@ -17,7 +17,6 @@ window.onload = function () {
         walletReplenished = false;
     };
     document.getElementById("closeDialogTitle").onclick = function () {
-        console.log(1);
         addDialog.style.display = "none";
     };
     dd = new Calendar({
@@ -116,6 +115,12 @@ function addInput() {
     addDialog.style.display = "none";
     addValue.value = "";
     addDescription.value = "";
+    var end_date_calendar=new Date();
+    var end_date_calendar1=new Date();
+    end_date_calendar=end_date_calendar.getSeconds();
+    end_date_calendar+=1;
+    end_date_calendar1.setSeconds(end_date_calendar);
+    dd.end_date = end_date_calendar1;
     refresh()
 }
 
@@ -135,12 +140,12 @@ function refresh(arguments) {
     for (i = 0; i < JSON.parse(localStorage["transactions"]).length; i++) {
         summvalue = summvalue + +JSON.parse(localStorage["transactions"])[i].value;
     }
-    document.getElementById("summval").innerHTML = "Баланс: " + summvalue;
+    document.getElementById("summval").innerHTML = summvalue;
     table.push("<thead>Транзакции в кошельке</thead>");
     table.push("<thead><tr><th>Время</th><th>Сумма</th><th>Описание</th><th>Тип</th></tr></thead>");
     table.push("<tbody>");
     transactions.forEach(function (entry) {
-        if (Date.parse(dd.start_date) < Date.parse(entry.date) && Date.parse(entry.date) < Date.parse(dd.end_date)) {
+        if (Date.parse(dd.start_date) <= Date.parse(entry.date) && Date.parse(entry.date) <= Date.parse(dd.end_date)) {
             table.push("<tr>");
 
             table.push("<td>");
